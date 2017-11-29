@@ -11,6 +11,7 @@ import cssextend from "postcss-simple-extend";
 import BrowserSync from "browser-sync";
 import webpack from "webpack";
 import webpackConfig from "./webpack.conf";
+import sass from "gulp-sass"
 
 const browserSync = BrowserSync.create();
 const hugoBin = "hugo";
@@ -21,6 +22,12 @@ gulp.task("hugo-preview", (cb) => buildSite(cb, ["--buildDrafts", "--buildFuture
 
 gulp.task("build", ["css", "js", "videos", "images", "hugo"]);
 gulp.task("build-preview", ["css", "js", "videos", "images", "hugo-preview"]);
+
+gulp.task("sass", function() {
+  gulp.src('./src/sass/*.scss')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(gulp.dest('./src/css/imports/'));
+});
 
 gulp.task("css", () => (
   gulp.src("./src/css/*.css")
@@ -65,7 +72,7 @@ gulp.task("images", () => (
     .pipe(browserSync.stream())
 ));
 
-gulp.task("server", ["hugo", "css", "js", "videos", "images"], () => {
+gulp.task("server", ["hugo", "sass", "css", "js", "videos", "images"], () => {
   browserSync.init({
     server: {
       baseDir: "./dist"
@@ -73,6 +80,7 @@ gulp.task("server", ["hugo", "css", "js", "videos", "images"], () => {
     notify: false
   });
   gulp.watch("./src/js/**/*.js", ["js"]);
+  gulp.watch("./src/sass/**/*.css", ["sass"]);
   gulp.watch("./src/css/**/*.css", ["css"]);
   gulp.watch("./src/img/**/*", ["images"]);
   gulp.watch("./src/videos/**/*", ["videos"]);
