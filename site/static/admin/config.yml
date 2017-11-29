@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: bdougie/hugo-restaurant-template
+  repo: thaitada/netlify-primary
   branch: master
 
 media_folder: "src/img/gallery" # Folder where user uploaded files should go
