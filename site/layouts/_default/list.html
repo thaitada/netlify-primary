@@ -13,9 +13,9 @@
               {{ range $value.Pages.GroupByParam "type" }}
                 <h3>{{ .Key }}</h3>
                 <ul>
-                {{ range .Pages }}
+                {{ range .Pages.ByWeight }}
                   <li>
-                    <p><strong>{{ .Title }}:</strong> {{ .Params.description }}</p>
+                    <p>({{ .Weight }}) -  <strong>{{ upper .Title }}:</strong> {{ .Params.description }}</p>
                     <p>{{ .Params.price }}</p>
                   </li>
                 {{ end }}
