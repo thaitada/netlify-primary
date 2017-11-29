@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Rock+Salt);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Rock+Salt|Kaushan+Script);
 
 * {
   box-sizing: border-box;
@@ -681,7 +681,7 @@ html {
   h1 {
     color: #fff;
     margin: 0 0 .35em 0;
-    font-family: "Rock Salt", cursive;
+    font-family: "Kaushan Script", cursive;
     font-size: 3.25rem;
     transition: color .2s ease;
     -webkit-font-smoothing: antialiased;
