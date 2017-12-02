@@ -43,7 +43,7 @@
     "gulp-util": "^3.0.7",
     "immutable": "^3.8.2",
     "imports-loader": "^0.6.5",
-    "netlify-cms": "^0.7.6",
+    "netlify-cms": "^0.4.6",
     "netlify-context-explorer": "^1.1.0",
     "postcss-at2x": "^2.0.0",
     "postcss-colour-functions": "^1.5.1",
